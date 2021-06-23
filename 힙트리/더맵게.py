@@ -23,9 +23,10 @@ def makeheaptree(value, location):#minheaptree
       heaptree.append(value)
       if location==1:
             return 0 # don't touch root
-      if value<=heaptree[int(location/2)]:
-            elementswap(int(location/2),location)
-            makeheaptree(value,int(location/2))
+      while(value<=heaptree[location//2]):
+            elementswap(location//2,location)
+            location//=2
+      heaptree[location]=value
       
 def elementswap(parient, child):
       temp=heaptree[parient]
@@ -34,12 +35,13 @@ def elementswap(parient, child):
 
 def modiheaptree():
       first=delelement()
+      print(heaptree,"frist")
       second=delelement()
+      print(heaptree)
       newone=first+(second*2)
       print(heaptree,newone)
       makeheaptree(newone,len(heaptree))
-
-      
+ 
 
 def delelement():
       delnode=heaptree[1]
@@ -59,10 +61,7 @@ def delelement():
             else:
                   break
       return delnode
-      
-      
-      
-
-scoville=[1,1,1]
-K=4
+        
+scoville=[12,10,3,9,2,1]
+K=7
 print(solution(scoville,K))
