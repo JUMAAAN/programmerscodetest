@@ -2,7 +2,7 @@ def solution(numbers,k): # N^2으로 풀이 불가
       answer=''
       maxindex=0
       endindex=k+1
-      while(maxindex+1!=endindex and endindex-1!=len(numbers)):
+      while(len(answer)!=len(numbers)-k and maxindex+1!=endindex and endindex-1!=len(numbers)):
             slicing=numbers[maxindex:endindex]
             maxvalue='0'
             memoindex=0
