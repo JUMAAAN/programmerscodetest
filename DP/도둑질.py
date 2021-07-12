@@ -5,16 +5,11 @@ def solution(money): #시간초과
     for i in range(1,3):
         dp1.append(money[-i])
         dp2.append(money[-i-1])
-    for i in range(3,len(money)):
-        templist1=[]
-        templist2=[]
-        for j in range(0,i-2):
-            templist1.append(dp1[j]+money[-i])
-            templist2.append(dp2[j]+money[-i-1])
-        print(templist1,templist2)
-        dp1.append(max(templist1))
-        dp2.append(max(templist2))
+    for i in range(2,len(money)-1):
+        dp1.append(max(dp1[i-2]+money[-i-1],dp1[i-1]))
+        dp2.append(max(dp2[i-2]+money[-i-2],dp2[i-1]))
+        print(dp1,dp2)
     answer=dp1+dp2
     answer=max(answer)
     return answer
-print(solution([91,90,5,7,5,7]))
+print(solution([90, 0, 0, 95, 1, 1]))
