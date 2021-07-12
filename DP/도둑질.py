@@ -1,4 +1,4 @@
-def solution(money): #시간초과 
+def solution(money):
     answer=0
     dp1=[]#마지막 포함 첫 삭제
     dp2=[]#마지팍 포함 x 첫 포함
@@ -12,4 +12,4 @@ def solution(money): #시간초과
     answer=dp1+dp2
     answer=max(answer)
     return answer
-print(solution([90, 0, 0, 95, 1, 1]))
+print(solution([1,2,3,1]))
